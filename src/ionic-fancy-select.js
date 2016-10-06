@@ -152,9 +152,6 @@ angular.module("ionic-fancy-select", ["ionic"])
           var values = scope.value ? angular.copy(scope.value) : [];
           
           angular.forEach(scope.items, function(item, key) {
-            // Not checked by default
-            item[scope.checkedProperty] = false;
-            
             var val = scope.getItemValue(item);
             for (var i = 0; i < values.length; i++) {
               if (val === values[i]) {
