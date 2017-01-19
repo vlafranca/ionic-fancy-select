@@ -4,9 +4,9 @@
 (function () { // To stop JSHint/JSLint whing
 "use strict";
 
-angular.module("ionic-fancy-select", ["ionic"])
+angular.module("ionic-fancy-select", ["ionic", 'jett.ionic.filter.bar'])
 
-.directive("fancySelect", function($ionicModal) {
+.directive("fancySelect", function($ionicModal, $ionicFilterBar) {
   return {
     // Only use as <fancy-select> tag
     restrict: "E",
@@ -133,7 +133,18 @@ angular.module("ionic-fancy-select", ["ionic"])
       scope.hideItems = function(event) {
         scope.modal.hide();
       };
-      
+
+      scope.showFilter = function(){
+          $ionicFilterBar.show({
+              items: scope.items,
+              update: function (filteredItems) {
+                  scope.items = filteredItems;
+              },
+              filterProperties: 'sportname',
+              container: '.modal-select'
+          });
+      }
+
       // Raised by watch when the value changes
       scope.onValueChanged = function(newValue, oldValue) {
         scope.text = scope.getText(newValue);

@@ -13,7 +13,8 @@
     "./templates/modal-template.html"
   ],
   "dependencies": {
-    "angular": "^1/2"
+    "angular": "^1/2",
+    "ionic-filter-bar": "~1.1.1"
   },
   "authors": [
     "TipsTrade Ltd."
